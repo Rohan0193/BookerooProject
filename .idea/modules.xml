@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/BookerooApp-SEPT.iml" filepath="$PROJECT_DIR$/.idea/BookerooApp-SEPT.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BackEnd/loginmicroservices/loginmicroservices.iml" filepath="$PROJECT_DIR$/BackEnd/loginmicroservices/loginmicroservices.iml" />
+    </modules>
+  </component>
+</project>

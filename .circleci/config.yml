@@ -1,0 +1,242 @@
+version: 2.1
+orbs:
+  aws-ecr: circleci/aws-ecr@6.4.0
+  aws-ecs: circleci/aws-ecs@0.0.11
+
+jobs:
+  #build docker image and deploy to AWS bookmicroservice
+  build_bookms:
+    environment:
+      IMAGE_NAME: bookeroo-bookmicroservice
+    docker:
+      - image: circleci/buildpack-deps:stretch
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Setup common environment variables
+          command: |
+            echo 'export ECR_REPOSITORY_NAME="${AWS_RESOURCE_NAME_PREFIX}"' >> $BASH_ENV
+
+      - run:
+          name: Install dependencies for AWS
+          command: |
+            sudo apt-get update
+            sudo apt-get -y -qq install awscli
+            sudo apt-get install python3-pip
+            sudo pip3 install --upgrade awscli
+
+      - run:
+          name: Build image
+          command: |
+            cd BackEnd/booksmicroservices/
+            docker build -t $IMAGE_NAME .
+
+      - run:
+          name: Tag for AWS
+          command: |
+            docker tag $IMAGE_NAME:latest 060453335490.dkr.ecr.us-east-1.amazonaws.com/bookeroo-bookmicroservice:latest
+      - run:
+          name: Archive Docker image
+          command: |
+            cd BackEnd/booksmicroservices/
+            docker save -o image.tar $IMAGE_NAME
+      - persist_to_workspace:
+          root: BackEnd/booksmicroservices/
+          paths:
+            - ./image.tar
+      - run:
+          name: Load archived Docker Image
+          command: |
+            docker load -i BackEnd/booksmicroservices/image.tar
+      - run:
+          name: Login AWS and Authenticate
+          command: |
+            aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 060453335490.dkr.ecr.us-east-1.amazonaws.com
+
+      - run:
+          name: Push image
+          command: |
+            docker push 060453335490.dkr.ecr.us-east-1.amazonaws.com/bookeroo-bookmicroservice:latest
+
+  # build and deploy docker image to AWS loginmicroservice
+  build_loginms:
+    environment:
+      IMAGE_NAME: bookeroo-loginmicroservice
+    docker:
+      - image: circleci/buildpack-deps:stretch
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Setup common environment variables
+          command: |
+            echo 'export ECR_REPOSITORY_NAME="${AWS_RESOURCE_NAME_PREFIX}"' >> $BASH_ENV
+
+      - run:
+          name: Install dependencies for AWS
+          command: |
+            sudo apt-get update
+            sudo apt-get -y -qq install awscli
+            sudo apt-get install python3-pip
+            sudo pip3 install --upgrade awscli
+
+      - run:
+          name: Build image
+          command: |
+            cd BackEnd/loginmicroservices/
+            docker build -t $IMAGE_NAME .
+
+      - run:
+          name: Tag for AWS
+          command: |
+            docker tag $IMAGE_NAME:latest 060453335490.dkr.ecr.us-east-1.amazonaws.com/bookeroo-loginmicroservice:latest
+      - run:
+          name: Archive Docker image
+          command: |
+            cd BackEnd/loginmicroservices/
+            docker save -o image.tar $IMAGE_NAME
+      - persist_to_workspace:
+          root: BackEnd/loginmicroservices/
+          paths:
+            - ./image.tar
+      - run:
+          name: Load archived Docker Image
+          command: |
+            docker load -i BackEnd/loginmicroservices/image.tar
+      - run:
+          name: Login AWS and Authenticate
+          command: |
+            aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 060453335490.dkr.ecr.us-east-1.amazonaws.com
+
+      - run:
+          name: Push image
+          command: |
+            docker push 060453335490.dkr.ecr.us-east-1.amazonaws.com/bookeroo-loginmicroservice:latest
+  #build and deploy web app to AWS web application
+  # build_webapp:
+  #   environment:
+  #     IMAGE_NAME: bookeroo-webappmicroservice
+  #   docker:
+  #     - image: circleci/buildpack-deps:stretch
+  #   steps:
+  #     - checkout
+  #     - setup_remote_docker
+  #     - run:
+  #         name: Setup common environment variables
+  #         command: |
+  #           echo 'export ECR_REPOSITORY_NAME="${AWS_RESOURCE_NAME_PREFIX}"' >> $BASH_ENV
+  #
+  #     - run:
+  #         name: Install dependencies for AWS
+  #         command: |
+  #           sudo apt-get update
+  #           sudo apt-get -y -qq install awscli
+  #           sudo apt-get install python3-pip
+  #           sudo pip3 install --upgrade awscli
+  #
+  #     - run:
+  #         name: Build image
+  #         command: |
+  #           cd FrontEnd/myfirstapp/
+  #           docker build -t $IMAGE_NAME .
+  #     - run:
+  #         name: Tag for AWS
+  #         command: |
+  #           docker tag $IMAGE_NAME:latest 060453335490.dkr.ecr.us-east-1.amazonaws.com/bookeroo-webappmicroservice:latest
+  #     - run:
+  #         name: Archive Docker image
+  #         command: |
+  #           cd FrontEnd/myfirstapp/
+  #           docker save -o image.tar $IMAGE_NAME
+  #     - persist_to_workspace:
+  #         root: FrontEnd/myfirstapp/
+  #         paths:
+  #           - ./image.tar
+  #     - run:
+  #         name: Load archived Docker Image
+  #         command: |
+  #           docker load -i FrontEnd/myfirstapp/image.tar
+  #     - run:
+  #         name: Login AWS and Authenticate
+  #         command: |
+  #           aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 060453335490.dkr.ecr.us-east-1.amazonaws.com
+  #
+  #     - run:
+  #         name: Push image
+  #         command: |
+  #           docker push 060453335490.dkr.ecr.us-east-1.amazonaws.com/bookeroo-webappmicroservice:latest
+
+  #Build and deploy transactions ms
+  build_transactionsms:
+    environment:
+      IMAGE_NAME: bookerooo-transactionsmicroservice
+    docker:
+      - image: circleci/buildpack-deps:stretch
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Setup common environment variables
+          command: |
+            echo 'export ECR_REPOSITORY_NAME="${AWS_RESOURCE_NAME_PREFIX}"' >> $BASH_ENV
+
+      - run:
+          name: Install dependencies for AWS
+          command: |
+            sudo apt-get update
+            sudo apt-get -y -qq install awscli
+            sudo apt-get install python3-pip
+            sudo pip3 install --upgrade awscli
+
+      - run:
+          name: Build image
+          command: |
+            cd BackEnd/transactionsmicroservice/
+            docker build -t $IMAGE_NAME .
+
+      - run:
+          name: Tag for AWS
+          command: |
+            docker tag $IMAGE_NAME:latest 060453335490.dkr.ecr.us-east-1.amazonaws.com/bookerooo-transactionsmicroservice:latest
+      - run:
+          name: Archive Docker image
+          command: |
+            cd BackEnd/transactionsmicroservice/
+            docker save -o image.tar $IMAGE_NAME
+      - persist_to_workspace:
+          root: BackEnd/transactionsmicroservice/
+          paths:
+            - ./image.tar
+      - run:
+          name: Load archived Docker Image
+          command: |
+            docker load -i BackEnd/transactionsmicroservice//image.tar
+      - run:
+          name: Login AWS and Authenticate
+          command: |
+            aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 060453335490.dkr.ecr.us-east-1.amazonaws.com
+
+      - run:
+          name: Push image
+          command: |
+            docker push 060453335490.dkr.ecr.us-east-1.amazonaws.com/bookerooo-transactionsmicroservice:latest
+workflows:
+  build-branch:
+    jobs:
+      - build_bookms:
+          filters:
+            branches:
+              only: main
+      - build_loginms:
+          filters:
+            branches:
+              only: main
+#       - build_webapp:
+#           filters:
+#             branches:
+#               only: main
+      - build_transactionsms:
+          filters:
+            branches:
+              only: main

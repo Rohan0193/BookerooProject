@@ -1,0 +1,530 @@
+img {
+  width: 50%;
+}
+
+.navbar {
+  background-color: #090833;
+}
+.fa.fa-edit {
+  color: #18a2b9;
+}
+
+.list-group-item.delete:hover {
+  cursor: -webkit-grab;
+  background-color: pink;
+}
+
+.list-group-item.update:hover {
+  cursor: -webkit-grab;
+  background-color: gainsboro;
+}
+
+.list-group-item.board:hover {
+  cursor: -webkit-grab;
+  background-color: gainsboro;
+}
+
+.fa.fa-minus-circle {
+  color: red;
+}
+
+.landing {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  margin-top: -24px;
+  margin-bottom: -50px;
+}
+
+.landing-inner {
+  padding-top: 80px;
+}
+
+.dark-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card-form {
+  opacity: 0.9;
+}
+
+.latest-profiles-img {
+  width: 40px;
+  height: 40px;
+}
+
+.form-control::placeholder {
+  color: #bbb !important;
+}
+
+.navbar-button-style{
+  background-color:darkblue;
+  width: 110px;
+  height: 40px;
+  padding: 1px;
+  border-color: white;
+  font-weight: bold;
+}
+
+.create-listing-button{
+  background-color:darkblue;
+  width: 160px;
+  height: 40px;
+  padding: 1px;
+  border-color: white;
+  font-weight: bold;
+  margin-left: 200px
+}
+
+.search-bar{
+  margin-top: 25px;
+  width: 630px;
+  margin-left: 14rem;
+  display: inline-block;
+}
+
+.search-bar-nav{
+  width: 10rem;
+}
+
+.search-button-nav{
+  margin-top: 1rem;
+  height: 2.1rem;
+}
+
+.secondary-navbar{
+  background-color: #2B4EC8;
+  margin-top: -24px;
+  height: 35px;
+}
+
+.secondary-navbar ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.secondary-navbar li{
+  float: left;
+}
+
+div.inline { 
+  float: left; 
+}
+
+.secondaryNavBarElem a{
+  font-weight: bold;
+  color: white;
+  margin-left: 16em;
+}
+
+.secondaryNavBarElem a:hover{
+  color:white;
+  text-decoration: none;
+}
+
+.button-searchPage {
+  background-color: #6270EB;
+  font-weight: bold;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+            background-color: #ddd;
+            text-decoration: none;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.displayBook{
+  margin-left: 87px;
+  margin-top: 45px;
+  margin-right: 46px;
+}
+.displayBook label {
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.displayBook i{
+  margin-left: 5px;
+}
+
+.displayBook img{
+  width: 250px;
+  
+}
+
+*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+}
+img {
+    width: 100%;
+}
+:root {
+    --bg: hsl(0, 0%, 98%);
+    --bg-offset: hsl(0, 0%, 100%);
+    --text: hsl(200, 15%, 8%);
+    --gray: hsl(0, 0%, 52%);
+    --border: rgba(0, 0, 0, 0.1);
+}
+ul,
+ol {
+    list-style: none;
+}
+body {
+    background: var(--bg);
+    font-family: sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 14px;
+}
+h1,
+h2 {
+    height: 18px;
+}
+.wrapper {
+    width: 96%;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+.card-grid {
+    margin: 2em 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 48px;
+}
+.card {
+    background-color: var(--bg-offset);
+    padding: 0px;
+    box-shadow: 0px 2px 4px var(--border);
+    transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+}
+.cardImage {
+    max-height: 300px;
+}
+.card-content {
+    padding: 32px 15px;
+    margin-top: -62px;
+}
+.card-list {
+    margin-top: 16px;
+}
+
+.searchBarStyle{
+  width: 700px;
+}
+
+.button-searchPage {
+  background-color: white;
+  width: 56px;
+  height: 30px;
+  padding: 1px;
+  border-color: white;
+  font-weight: bold;
+}
+
+.navbar-button-loggedIn{
+  vertical-align: top;
+  background-color: darkblue;
+  width: 83px;
+  height: 40px;
+  padding: 1px;
+  border-color: white;
+  font-weight: bold;
+  color: white;
+}
+
+.navbar-welcome-message{
+  vertical-align: top;
+  background-color: darkblue;
+  width: 103px;
+  height: 40px;
+  padding: 1px;
+  border-color: white;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.dropdown{
+  position: relative;
+  display: inline-block;
+}
+
+.account-dropdown-options{
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.account-dropdown-options a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.account-dropdown-options a:hover {background-color: #84ABF8;}
+
+.dropdown:hover .account-dropdown-options {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+.navbar-button-logout{
+  vertical-align: top;
+  background-color: darkblue;
+  width: 83px;
+  height: 40px;
+  padding: 1px;
+  border-color: white;
+  font-weight: bold;
+  color: white;
+}
+
+.footer{
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color:darkblue;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+.bookImage {
+  width: 15rem;
+  height: 20rem;
+}
+
+.bookCardImage{
+  width: 20rem;
+  height: 20rem;
+}
+
+.infoCard{
+  width:20rem;
+  height: 28rem;
+}
+
+.RevList{
+  margin-left:10rem;
+}
+
+.bookCard{
+  width: 5rem;
+}
+
+.bookImg{
+  width:9rem;
+  height:15rem;
+  margin-left: 3rem;
+}
+
+.cards{
+  height: 22rem;
+}
+
+.cards-search-results{
+  height: 22rem;
+  margin-left: 18rem;
+  width: 16rem;
+}
+
+.listingForm{
+  margin-top: 1rem;
+}
+
+.inputBar{
+  width: 23rem;
+  margin-top: 2rem;
+  margin-left: 22rem;
+}
+
+.listingTitle{
+  text-align: center;
+}
+
+
+input[type="radio"] {
+  display: none;
+}
+
+.star {
+  cursor:pointer;
+  transition: color 200ms;
+}
+
+.page {
+  overflow: auto;
+}
+
+.paymentButton {
+  margin-top: 5rem;
+}
+
+.paypalbutton {
+  width: 25%;
+  margin-left: 4rem;
+  margin-right: 30%;
+  padding:50px;
+  margin-top: 50px;
+}
+
+.headerDiv {
+  align-items: center;
+  padding: 20px;
+  display:block;
+  margin-bottom: 10px;
+}
+
+.rowTransactions {
+  margin-top: 5px;
+  margin-bottom: 50px;
+}
+
+.container1 {
+  margin-top: 75px;
+  margin-bottom: 50px;
+}
+
+.col0 {
+  margin-left: 20%;
+}
+
+.genreBox {
+  height: 250px;
+  width: 350px;
+  overflow: auto;
+  border: 1px solid black;
+  font-size: 24px;
+}
+
+.userContainerBox {
+  overflow: auto;
+  border: 1px solid black;
+}
+
+.img404 {
+  width: 18vw;
+  height: 18vh;
+  margin: 0 auto;
+  background-position: center;
+}
+
+.messagespacing401 {
+  margin-top: 5%;
+}
+
+.receipt-header{
+  margin-left: 43rem;
+}
+
+.line{
+  margin-top: 3rem;
+}
+
+.receipt{
+  margin-top: 5rem;
+}
+
+.receipt-body{
+  margin-left: 30rem;
+}
+
+.receipt-userDetails{
+  margin-left: -14rem;
+  margin-top: 5rem;
+}
+
+.receipt-transactionDetails{
+  margin-left: 30rem;
+  margin-top: -4rem;
+}
+
+.message{
+  margin-top: -3rem;
+  margin-left: 23rem;
+  height: 4rem;
+}
+
+.form{
+  margin-top: 1rem;
+}
+
+
+/* table css start */
+
+table.invoiceTable {
+  border: 1px solid green;
+  background-color: #EEEEEE;
+  width: 53rem;
+  text-align: left;
+  border-collapse: collapse;
+  margin-left: 23rem;
+  margin-top: 5rem
+}
+table.invoiceTable td, table.invoiceTable th {
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
+}
+table.invoiceTable tbody td {
+  font-size: 13px;
+}
+table.invoiceTable tr:nth-child(even) {
+  background: #D0E4F5;
+}
+table.invoiceTable thead {
+  background: grey;
+  border-bottom: 2px solid #444444;
+}
+table.invoiceTable thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF;
+  border-left: 2px solid #D0E4F5;
+}
+table.invoiceTable thead th:first-child {
+  border-left: none;
+}
+
+
+
+/* table css end */

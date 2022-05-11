@@ -1,0 +1,452 @@
+Index: ../FrontEnd/myfirstapp/src/App.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React, { Component } from \"react\";\nimport \"./App.css\";\nimport Dashboard from \"./components/Dashboard\";\nimport Header from \"./components/Layout/Header\";\nimport \"bootstrap/dist/css/bootstrap.min.css\";\nimport { BrowserRouter as Router, Route } from \"react-router-dom\";\nimport AddPerson from \"./components/Persons/AddPerson\";\nimport { Provider } from \"react-redux\";\nimport store from \"./store\";\nimport Landing from \"./components/Layout/Landing\";\nimport Register from \"./components/UserManagement/Register\";\nimport Login from \"./components/UserManagement/Login\";\nimport Search from \"./components/Search/Search\";\n\n\n\nclass App extends Component {\n  render() {\n    return (\n      <Provider store={store}>\n        <Router>\n          <div className=\"App\">\n            <Header />\n          \n            {\n              //Public Routes\n              //For every page you create, you should include a route\n              //the name you specify in the \"exact path\" will be used to route a button when pressed\n            }\n            <Route exact path=\"/\" component={Landing} />\n            <Route exact path=\"/register\" component={Register} />\n            <Route exact path=\"/login\" component={Login} />\n            {/* <Route exact path=\"/search\" component={Search}/> */}\n            \n\n            {\n              //Private Routes\n            }\n            <Route exact path=\"/dashboard\" component={Dashboard} />\n            <Route exact path=\"/addPerson\" component={AddPerson} />\n          \n          </div> \n        </Router>\n      </Provider>\n    );\n  }\n}\nexport default App;
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../FrontEnd/myfirstapp/src/App.js b/../FrontEnd/myfirstapp/src/App.js
+--- a/../FrontEnd/myfirstapp/src/App.js	
++++ b/../FrontEnd/myfirstapp/src/App.js	
+@@ -11,6 +11,7 @@
+ import Register from "./components/UserManagement/Register";
+ import Login from "./components/UserManagement/Login";
+ import Search from "./components/Search/Search";
++import SearchResults from "./components/Search/SearchResults";
+ 
+ 
+ 
+@@ -30,7 +31,8 @@
+             <Route exact path="/" component={Landing} />
+             <Route exact path="/register" component={Register} />
+             <Route exact path="/login" component={Login} />
+-            {/* <Route exact path="/search" component={Search}/> */}
++            <Route exact path="/search" component={Search}/>
++            <Route exact path="/searchResults" component={SearchResults} />
+             
+ 
+             {
+Index: ../FrontEnd/myfirstapp/src/components/Layout/Header.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React from 'react'\nimport 'bootstrap/dist/css/bootstrap.min.css';\nimport Search from  '../Search/Search';\nimport { Component } from 'react';\nimport SigninButton from '../Buttons/SigninButton';\nimport RegisterButton from '../Buttons/RegisterButton';\nimport Brand from './Brand';\n\n\nclass Header extends Component {\n    render(){\n        return (\n            <div>\n                {/* primary navigation bar */}\n                <nav className=\"navbar navbar-expand-sm navbar-dark mb-4\">\n                    <div className=\"container\">\n                    \n                        {/* brand name to refresh page */}\n                        <Brand />\n                        {/* search bar feature to search for books */}\n                        <Search />\n                            \n                        <div className=\"collapse navbar-collapse\" id=\"mobile-nav\">\n                            <ul className=\"navbar-nav ml-auto\">\n                                <li className=\"nav-item\">\n                                    {/* button component to handle login */}\n                                    <SigninButton />\n                                </li>\n                                <li>\n                                    {/* button component to handle register */}\n                                    <RegisterButton />\n                                </li>\n                            </ul>\n                         </div>\n                    </div>\n                </nav>\n            </div>\n        )\n    }\n}\nexport default Header;
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../FrontEnd/myfirstapp/src/components/Layout/Header.js b/../FrontEnd/myfirstapp/src/components/Layout/Header.js
+--- a/../FrontEnd/myfirstapp/src/components/Layout/Header.js	
++++ b/../FrontEnd/myfirstapp/src/components/Layout/Header.js	
+@@ -1,12 +1,12 @@
+ import React from 'react'
+ import 'bootstrap/dist/css/bootstrap.min.css';
+-import Search from  '../Search/Search';
+ import { Component } from 'react';
+ import SigninButton from '../Buttons/SigninButton';
+ import RegisterButton from '../Buttons/RegisterButton';
+ import Brand from './Brand';
++import Search from '../Search/Search';
+ 
+-
++//main class compoenent header, contains several components
+ class Header extends Component {
+     render(){
+         return (
+@@ -18,7 +18,7 @@
+                         {/* brand name to refresh page */}
+                         <Brand />
+                         {/* search bar feature to search for books */}
+-                        <Search />
++                        <Search/>
+                             
+                         <div className="collapse navbar-collapse" id="mobile-nav">
+                             <ul className="navbar-nav ml-auto">
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"13adcd35-00f8-48a8-8d93-59e96fb85082\" name=\"Changes\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/../FrontEnd/myfirstapp/package-lock.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../FrontEnd/myfirstapp/package-lock.json\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/../FrontEnd/myfirstapp/src/App.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../FrontEnd/myfirstapp/src/App.js\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/../FrontEnd/myfirstapp/src/components/Layout/Header.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../FrontEnd/myfirstapp/src/components/Layout/Header.js\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/../FrontEnd/myfirstapp/src/components/Service/SearchService.js\" beforeDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Interface\" />\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\n  </component>\n  <component name=\"JpbToolWindowState\">\n    <option name=\"myId2FirstActivated\">\n      <map>\n        <entry key=\"JPA Structure\" value=\"true\" />\n      </map>\n    </option>\n    <option name=\"myId2Visible\">\n      <map>\n        <entry key=\"JPA Structure\" value=\"false\" />\n      </map>\n    </option>\n  </component>\n  <component name=\"ProjectId\" id=\"1x6Zdwa9CR3y2TfmDY5YHjJGV00\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\n    <property name=\"restartRequiresConfirmation\" value=\"false\" />\n    <property name=\"settings.editor.selected.configurable\" value=\"reference.settings.project.maven.repository.indices\" />\n  </component>\n  <component name=\"RunManager\" selected=\"Application.ms_books\">\n    <configuration name=\"ms_books\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.rmit.sept.bk.booksmicroservices.ms_books\" />\n      <module name=\"booksmicroservices\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.rmit.sept.bk.booksmicroservices.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"ms_login\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.rmit.sept.loginmicroservices.ms_login\" />\n      <module name=\"loginmicroservices\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.rmit.sept.loginmicroservices.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Application.ms_books\" />\n        <item itemvalue=\"Application.ms_login\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"13adcd35-00f8-48a8-8d93-59e96fb85082\" name=\"Changes\" comment=\"\" />\n      <created>1629677591576</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1629677591576</updated>\n    </task>\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -5,11 +5,48 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="13adcd35-00f8-48a8-8d93-59e96fb85082" name="Changes" comment="">
++      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_activation_jakarta_activation_1_2_2.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_istack_istack_commons_runtime_3_0_12.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_4_0_3.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_persistence_jakarta_persistence_api_2_2_3.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_transaction_jakarta_transaction_api_1_3_3.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_9_7.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_dom4j_dom4j_2_1_3.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_5.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_5.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_1_2_Final.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_4_32_Final.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_27_0_GA.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_2_2_3_Final.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_2_Final.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_2_5_4.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_2_5_4.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_5_4.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_5_4.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_2_5_4.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_5_3_9.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_3_9.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_5_3_9.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_3_9.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.jpb/jpb-settings.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/booksmicroservices/src/main/java/com/rmit/sept/bk/booksmicroservices/BookRepository/Book.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/booksmicroservices/src/main/java/com/rmit/sept/bk/booksmicroservices/BookRepository/BookRepository.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/booksmicroservices/src/main/java/com/rmit/sept/bk/booksmicroservices/service/BookService.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/../FrontEnd/myfirstapp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/myfirstapp/package-lock.json" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/booksmicroservices/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/booksmicroservices/pom.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/booksmicroservices/src/main/java/com/rmit/sept/bk/booksmicroservices/BookDatabase/BookDatabase.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/booksmicroservices/src/main/java/com/rmit/sept/bk/booksmicroservices/controller/BooksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/booksmicroservices/src/main/java/com/rmit/sept/bk/booksmicroservices/controller/BooksController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/booksmicroservices/src/main/java/com/rmit/sept/bk/booksmicroservices/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/booksmicroservices/src/main/java/com/rmit/sept/bk/booksmicroservices/model/Book.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/booksmicroservices/src/main/java/com/rmit/sept/bk/booksmicroservices/service/BooksService.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/booksmicroservices/src/main/java/com/rmit/sept/bk/booksmicroservices/service/BooksServiceImplementation.java" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/../FrontEnd/myfirstapp/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/myfirstapp/src/App.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/../FrontEnd/myfirstapp/src/components/Layout/Brand.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/myfirstapp/src/components/Layout/Brand.js" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/../FrontEnd/myfirstapp/src/components/Layout/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/myfirstapp/src/components/Layout/Header.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/../FrontEnd/myfirstapp/src/components/Service/SearchService.js" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/../FrontEnd/myfirstapp/src/components/Search/Search.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/myfirstapp/src/components/Search/Search.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/../FrontEnd/myfirstapp/src/components/Search/SearchResults.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/myfirstapp/src/components/Search/SearchResults.js" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -30,27 +67,38 @@
+   <component name="JpbToolWindowState">
+     <option name="myId2FirstActivated">
+       <map>
++        <entry key="JPA Inspector" value="true" />
++        <entry key="JPA Palette" value="true" />
+         <entry key="JPA Structure" value="true" />
+       </map>
+     </option>
+     <option name="myId2Visible">
+       <map>
++        <entry key="JPA Inspector" value="false" />
++        <entry key="JPA Palette" value="false" />
+         <entry key="JPA Structure" value="false" />
+       </map>
+     </option>
+   </component>
+   <component name="ProjectId" id="1x6Zdwa9CR3y2TfmDY5YHjJGV00" />
+-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
++    <ConfirmationsSetting value="2" id="Add" />
++  </component>
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+   <component name="PropertiesComponent">
++    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
++    <property name="last_directory_selection" value="$PROJECT_DIR$/booksmicroservices/src/main/java/com/rmit/sept/bk/booksmicroservices" />
++    <property name="project.structure.last.edited" value="Facets" />
++    <property name="project.structure.proportion" value="0.15" />
++    <property name="project.structure.side.proportion" value="0.2" />
+     <property name="restartRequiresConfirmation" value="false" />
+-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
++    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+   </component>
+   <component name="RunManager" selected="Application.ms_books">
+     <configuration name="ms_books" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+@@ -109,4 +157,7 @@
+     </option>
+     <option name="oldMeFiltersMigrated" value="true" />
+   </component>
++  <component name="VcsManagerConfiguration">
++    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
++  </component>
+ </project>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_springframework_spring_jdbc_5_3_9.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__org_springframework_spring_jdbc_5_3_9.xml b/.idea/libraries/Maven__org_springframework_spring_jdbc_5_3_9.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/libraries/Maven__org_springframework_spring_jdbc_5_3_9.xml	
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: org.springframework:spring-jdbc:5.3.9">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/5.3.9/spring-jdbc-5.3.9.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/5.3.9/spring-jdbc-5.3.9-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/5.3.9/spring-jdbc-5.3.9-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_springframework_data_spring_data_commons_2_5_4.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_5_4.xml b/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_5_4.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_5_4.xml	
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: org.springframework.data:spring-data-commons:2.5.4">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.5.4/spring-data-commons-2.5.4.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.5.4/spring-data-commons-2.5.4-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.5.4/spring-data-commons-2.5.4-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_springframework_data_spring_data_jpa_2_5_4.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_2_5_4.xml b/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_2_5_4.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_2_5_4.xml	
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: org.springframework.data:spring-data-jpa:2.5.4">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/2.5.4/spring-data-jpa-2.5.4.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/2.5.4/spring-data-jpa-2.5.4-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/2.5.4/spring-data-jpa-2.5.4-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .jpb/jpb-settings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.jpb/jpb-settings.xml b/.jpb/jpb-settings.xml
+new file mode 100644
+--- /dev/null	
++++ b/.jpb/jpb-settings.xml	
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="JpaPluginProjectSettings">
++    <option name="lastSelectedLanguage" value="Java" />
++  </component>
++</project>
+\ No newline at end of file
+Index: booksmicroservices/src/main/java/com/rmit/sept/bk/booksmicroservices/service/BookService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/booksmicroservices/src/main/java/com/rmit/sept/bk/booksmicroservices/service/BookService.java b/booksmicroservices/src/main/java/com/rmit/sept/bk/booksmicroservices/service/BookService.java
+new file mode 100644
+--- /dev/null	
++++ b/booksmicroservices/src/main/java/com/rmit/sept/bk/booksmicroservices/service/BookService.java	
+@@ -0,0 +1,20 @@
++package com.rmit.sept.bk.booksmicroservices.service;
++
++import com.rmit.sept.bk.booksmicroservices.BookRepository.BookRepository;
++import com.rmit.sept.bk.booksmicroservices.model.Book;
++import com.sun.xml.bind.v2.model.core.ID;
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.stereotype.Service;
++
++import java.util.List;
++import java.util.Optional;
++
++
++//service to fetch data from BookRepository AKA BookerooDatabase
++@Service
++public class BookService{
++
++    @Autowired
++    private BookRepository bookRepo;
++    
++}
+Index: booksmicroservices/src/main/java/com/rmit/sept/bk/booksmicroservices/BookRepository/Book.java
+===================================================================
+diff --git a/booksmicroservices/src/main/java/com/rmit/sept/bk/booksmicroservices/BookRepository/Book.java b/booksmicroservices/src/main/java/com/rmit/sept/bk/booksmicroservices/BookRepository/Book.java
+new file mode 100644
+--- /dev/null	
++++ b/booksmicroservices/src/main/java/com/rmit/sept/bk/booksmicroservices/BookRepository/Book.java	
+@@ -0,0 +1,5 @@
++package com.rmit.sept.bk.booksmicroservices.BookRepository;
++
++public interface Book {
++    Long getIsbnNumber();
++}
+Index: ../FrontEnd/myfirstapp/src/components/Search/Search.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React, { Component, useState,onChange} from 'react'\nimport BookSearchService from '../Service/BookSearchService';\nimport {Link} from 'react-router-dom';\n\n\nconst bookSearch = BookSearchService();\nconst [bookList, setBooks] = useState([]);\n\nclass search extends Component {\n    constructor(props){\n        super(props);\n        this.setState.bookList = this.setState(this);\n        //onChange function is triggered when a user enter a keyword in the search box\n        this.onChange = async(event) => {\n            try {\n                const bookSearchResponse = await bookSearch(event);\n                const books  = bookSearchResponse.data;\n                const bookSearchResultList = books.map (\n                    (book) =>\n                        `${book.title}`\n                    );\n                                    \n                {this.setState(bookSearchResultList)} ;\n            } catch (error) {\n                console.log(error)\n            }\n        }\n    }\n    render() {\n        return (\n            <div>\n                <div>\n                <input \n                    className=\"search-bar\" \n                    type=\"text\" \n                    placeholder=\"Search your favorite books!\"\n                    onChange= {this.onChange()}/>\n                <button type=\"submit\"><i className=\"fa fa-search\"></i></button>    \n\n                {/* show list of books */}\n                <ul className=\"list-group\">\n                        {this.bookList.map((books,index) =>(\n                        <li className=\"list-group-item\" key={index}>\n                                <Link to={{\n                                        pathname: `/search/${index}`,\n                                        state: {bookList: books},\n                                }}> \n                                { books || 'No Books with this keyword'} \n                                </Link>\n                            </li>\n                        ))}\n                    </ul>\n            </div>\n            </div>\n        )\n    }\n}\n\nexport default search;
+===================================================================
+diff --git a/../FrontEnd/myfirstapp/src/components/Search/Search.js b/../FrontEnd/myfirstapp/src/components/Search/Search.js
+--- a/../FrontEnd/myfirstapp/src/components/Search/Search.js	
++++ b/../FrontEnd/myfirstapp/src/components/Search/Search.js	
+@@ -1,56 +1,16 @@
+-import React, { Component, useState,onChange} from 'react'
+-import BookSearchService from '../Service/BookSearchService';
+-import {Link} from 'react-router-dom';
+-
++import React, { Component, useState} from 'react'
++import SearchResults from './SearchResults';
+ 
+-const bookSearch = BookSearchService();
+-const [bookList, setBooks] = useState([]);
+-
++//class component to create the search bar and button
+ class search extends Component {
+-    constructor(props){
+-        super(props);
+-        this.setState.bookList = this.setState(this);
+-        //onChange function is triggered when a user enter a keyword in the search box
+-        this.onChange = async(event) => {
+-            try {
+-                const bookSearchResponse = await bookSearch(event);
+-                const books  = bookSearchResponse.data;
+-                const bookSearchResultList = books.map (
+-                    (book) =>
+-                        `${book.title}`
+-                    );
+-                                    
+-                {this.setState(bookSearchResultList)} ;
+-            } catch (error) {
+-                console.log(error)
+-            }
+-        }
+-    }
++    
+     render() {
+         return (
+             <div>
+                 <div>
+-                <input 
+-                    className="search-bar" 
+-                    type="text" 
+-                    placeholder="Search your favorite books!"
+-                    onChange= {this.onChange()}/>
+-                <button type="submit"><i className="fa fa-search"></i></button>    
+-
+-                {/* show list of books */}
+-                <ul className="list-group">
+-                        {this.bookList.map((books,index) =>(
+-                        <li className="list-group-item" key={index}>
+-                                <Link to={{
+-                                        pathname: `/search/${index}`,
+-                                        state: {bookList: books},
+-                                }}> 
+-                                { books || 'No Books with this keyword'} 
+-                                </Link>
+-                            </li>
+-                        ))}
+-                    </ul>
+-            </div>
++                    {/* show search bar & list of books which produces clickable list*/}
++                    <SearchResults />
++                </div>
+             </div>
+         )
+     }
+Index: ../FrontEnd/myfirstapp/src/components/Layout/Brand.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React from 'react'\nimport {Link} from \"react-router-dom\";\n\n const Brand = () => {\n    return (\n        <div>\n            <React.Fragment>\n                <Link className=\"navbar-brand\" \n                     to=\"/\">\n                    Bookeroo\n                </Link>\n            </React.Fragment>\n       \n        </div>\n    )\n}\n\nexport default Brand;
+===================================================================
+diff --git a/../FrontEnd/myfirstapp/src/components/Layout/Brand.js b/../FrontEnd/myfirstapp/src/components/Layout/Brand.js
+--- a/../FrontEnd/myfirstapp/src/components/Layout/Brand.js	
++++ b/../FrontEnd/myfirstapp/src/components/Layout/Brand.js	
+@@ -1,6 +1,7 @@
+ import React from 'react'
+ import {Link} from "react-router-dom";
+ 
++//functional component for the branch name, used to refresh page
+  const Brand = () => {
+     return (
+         <div>
+Index: ../FrontEnd/myfirstapp/src/components/Search/SearchResults.js
+===================================================================
+diff --git a/../FrontEnd/myfirstapp/src/components/Search/SearchResults.js b/../FrontEnd/myfirstapp/src/components/Search/SearchResults.js
+--- a/../FrontEnd/myfirstapp/src/components/Search/SearchResults.js	
++++ b/../FrontEnd/myfirstapp/src/components/Search/SearchResults.js	
+@@ -1,0 +1,53 @@
++import React,{useState} from 'react'
++import {Link} from 'react-router-dom';
++import BookSearchService from '../Service/BookSearchService';
++
++ //functional components that invokes the api and returns result
++ const SearchResults = () => {
++    //create a state and use setBooks method to store result
++    const [bookList, setBooks] = useState([])
++    //fetch results from api and store it in search variable
++    const {search} = BookSearchService();
++
++    return (
++        <div>
++            <form>
++                <input 
++                    className="search-bar" 
++                    type="text" 
++                    placeholder="Search your favorite books!"
++                    onChange={async (event) => {
++                            const value = event.target.value;
++                            try {
++                                const bookSearchResponse = await search(value);
++                                const books  = bookSearchResponse.data;
++                                const bookSearchResultList = books.map (
++                                    (book) =>
++                                        `${book.title} ${book.isbnNumber}`
++                                );
++
++                                setBooks(bookSearchResultList);
++
++                            } catch (error) {
++                                console.log(error);
++                                }
++                            }}/>
++                <button type="submit"><i className="fa fa-search"></i></button>
++            </form>   
++            <ul className="list-group">
++                {bookList.map((books,index) =>(
++                <li className="list-group-item" key={index}>
++                        <Link to={{
++                                pathname: `/search/${index}`,
++                                state: {bookList: books},
++                        }}> 
++                        { books || 'No Results to be displayed'} 
++                        </Link>
++                    </li>
++                ))}
++            </ul>
++        </div>
++    )
++}
++
++export default SearchResults;
+\ No newline at end of file
